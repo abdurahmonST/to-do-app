@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <title>TASKS</title>
 </head>
-
 <body class="bg-slate-900 text-white">
     <div class="max-w-screen-md mx-auto py-10 px-3">
-        <h1 class="text-3xl font-bold mb-3">Tasks here</h1>
+        <h1 class="text-3xl font-bold mb-6">Tasks Manager</h1>
 
-        <form id="form" class="flex flex-col gap-3 text-slate-800">
-            <input class="rounded py-1 px-2" type="text" name="title" placeholder="Title">
-            <textarea class="rounded py-1 px-2" rows="3" name="desc" placeholder="Describe the task"></textarea>
-            <button class="bg-slate-600 text-white px-2 py-1 rounded" type="submit">Add</button>
+        <form id="form" class="flex flex-col gap-3 text-slate-800 mb-6">
+            <input class="rounded py-2 px-3" type="text" name="title" placeholder="Title" required>
+            <textarea class="rounded py-2 px-3" rows="3" name="desc" placeholder="Describe the task"></textarea>
+            <button class="bg-slate-600 text-white px-3 py-2 rounded hover:bg-slate-700 transition-colors" type="submit">Add Task</button>
         </form>
-        <button class="bg-slate-600 text-white px-2 py-1 my-4 rounded" id="change-btn">Change</button>
 
-        <hr class="my-4">
+        <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex-1 min-w-[200px]">
+                <input 
+                    id="search-input" 
+                    class="w-full rounded py-2 px-3 text-slate-800" 
+                    type="text" 
+                    placeholder="Search tasks..."
+                >
+            </div>
+            
+            <button id="reverse-btn" class="bg-slate-600 text-white px-3 py-2 rounded hover:bg-slate-700 transition-colors">
+                Reverse Order
+            </button>
+            
+            <button id="archive-toggle-btn" class="bg-slate-600 text-white px-3 py-2 rounded hover:bg-slate-700 transition-colors">
+                Show Archived
+            </button>
+        </div>
+
+        <hr class="my-6 border-slate-700">
 
         <div id="tasks-list" class="grid gap-4"></div>
+
+        <div id="task-stats" class="mt-8 text-center text-slate-400 text-sm hidden"></div>
     </div>
 
-    <script src="./main.js"></script>
-</body>
+<script src="main.js"></script>
 
+</body>
 </html>
